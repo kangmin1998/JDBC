@@ -17,7 +17,7 @@ public class JDBCTemplate {
 //        Properties prop = new Properties();
 //
 //        try {
-//            prop.load(new FileReader("src/main/java/chap01_connection/com/config/connection_info.properties"));
+//            prop.load(new FileReader("src/main/java/chap01_connection/com/config/connection_info_employee.properties"));
 //
 //            String driver = prop.getProperty("driver");
 //            String url = prop.getProperty("url");

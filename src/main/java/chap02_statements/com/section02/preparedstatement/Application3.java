@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static common.JDBCTemplate.getConnection;
-import static common.JDBCTemplate.close;
+import static common.JDBCTemplate_employee.getConnection;
+import static common.JDBCTemplate_employee.close;
 
 
 

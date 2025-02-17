@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static common.JDBCTemplate.close;
-import static common.JDBCTemplate.getConnection;
+import static common.JDBCTemplate_employee.close;
+import static common.JDBCTemplate_employee.getConnection;
 
 public class Application1 {
     public static void main(String[] args) {

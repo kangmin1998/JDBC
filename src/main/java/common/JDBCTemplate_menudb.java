@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 
-public class JDBCTemplate {
+public class JDBCTemplate_menudb {
+
     public static Connection getConnection() {
 
         Connection con = null;
@@ -13,7 +14,7 @@ public class JDBCTemplate {
         Properties prop = new Properties();
 
         try {
-            prop.load(new FileReader("src/main/java/config/connection_info.properties"));
+            prop.load(new FileReader("src/main/java/config/connection_info_menu.properties"));
 
             String driver = prop.getProperty("driver");
             String url = prop.getProperty("url");
@@ -22,6 +23,9 @@ public class JDBCTemplate {
 
             // getConnection 에 properties 객체를 그냥 전달해 주는 것도 있다.
             con = DriverManager.getConnection(url, prop);
+
+            /* Connection 객체의 default 설정은 auto commit이나 트랜잭션 관리를 위해 auto commit : false로 설정한다. */
+            con.setAutoCommit(false);
 
         } catch (IOException e) {
             //throw new RuntimeException(e);
@@ -68,6 +72,26 @@ public class JDBCTemplate {
             }
         } catch (SQLException e) {
             //throw new RuntimeException(e);
+            e.printStackTrace();
+        }
+    }
+
+    public static void commit(Connection con) {
+        try {
+            if(con != null && !con.isClosed()) {
+                con.commit();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void rollback(Connection con) {
+        try {
+            if(con != null && !con.isClosed()) {
+                con.rollback();
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
